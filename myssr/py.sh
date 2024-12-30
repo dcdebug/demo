@@ -8,4 +8,5 @@ apt update && apt install supervisor ufw wget net-tools -y  \
 command=/usr/local/bin/gost -L http://user:pass@:8080" > /etc/supervisor/conf.d/gost.conf\
 && /etc/init.d/supervisor restart \
 && echo "Waiting for the restart of the process " && sleep 6 && supervisorctl status \
-&& ufw allow 8080
+&& ufw allow 8080 \
+&& netstat -lnp |grep -i 8080
