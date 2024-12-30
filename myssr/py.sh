@@ -7,5 +7,5 @@ apt update && apt install supervisor ufw  -y  \
 && echo "[program:gost_http_proxy]
 command=/usr/local/bin/gost -L http://user:pass@:8080" > /etc/supervisor/conf.d/gost.conf\
 && /etc/init.d/supervisor restart \
-&& sleep 6 && supervisorctl status \
+&& echo "Waiting for the restart of the process " && sleep 6 && supervisorctl status \
 && ufw allow 8080
