@@ -1,5 +1,5 @@
 #!/bin/bash
-apt update && apt install supervisor ufw  -y  \
+apt update && apt install supervisor ufw wget  -y  \
 && cd /usr/local/src/ && wget https://github.com/go-gost/gost/releases/download/v3.0.0-nightly.20241227/gost_3.0.0-nightly.20241227_linux_amd64.tar.gz\
 && tar -zxvf gost_3.0.0-nightly.20241227_linux_amd64.tar.gz && mv ./gost /usr/local/bin/\
 && /usr/local/bin/gost -V \
