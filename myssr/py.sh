@@ -1,7 +1,7 @@
 #!/bin/bash
 apt update && apt install supervisor ufw wget net-tools -y  \
-&& cd /usr/local/src/ && wget https://github.com/go-gost/gost/releases/download/v3.0.0-nightly.20241227/gost_3.0.0-nightly.20241227_linux_amd64.tar.gz\
-&& tar -zxvf gost_3.0.0-nightly.20241227_linux_amd64.tar.gz && mv ./gost /usr/local/bin/\
+&& cd /usr/local/src/ && wget https://github.com/go-gost/gost/releases/download/v3.0.0/gost_3.0.0_linux_amd64.tar.gz\
+&& tar -zxvf gost_3.0.0_linux_amd64.tar.gz && mv ./gost /usr/local/bin/\
 && /usr/local/bin/gost -V \
 && touch /etc/supervisor/conf.d/gost.conf \
 && echo "[program:gost_http_proxy]
