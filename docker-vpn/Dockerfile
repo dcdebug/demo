@@ -17,8 +17,8 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
     && rm -rf /var/lib/apt/lists/* \
     && wget -q "https://www.expressvpn.works/clients/linux/${APP}" -O /tmp/${APP} \
     && dpkg -i /tmp/${APP} \
-    && rm -rf /tmp/*.deb \
-    && apt update && apt install -y --only-upgrade expressvpn && apt install -y wireguard  vim \
+ ##   && rm -rf /tmp/*.deb \
+    && apt update && apt install -y --only-upgrade expressvpn && apt install -y wireguard  htop vim net-tools \
     ## && apt-get purge -y --auto-remove wget\
     && sed -i \
         -e 's/listen-address\s*127.0.0.1:8118/listen-address 0.0.0.0:8118/g' \
