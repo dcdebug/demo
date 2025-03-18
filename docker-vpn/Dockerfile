@@ -20,6 +20,7 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
     && dpkg -i /tmp/${APP} \
  ##   && rm -rf /tmp/*.deb \
     && apt update && apt install -y --only-upgrade expressvpn && apt install -y nload htop vim net-tools shadowsocks-libev && mkdir -p /etc/shadowsocks-libev \
+    && touch /etc/shadowsocks-libev/config.json \
     ## && apt-get purge -y --auto-remove wget\
 #    && sed -i \
 #        -e 's/listen-address\s*127.0.0.1:8118/listen-address 0.0.0.0:8118/g' \
