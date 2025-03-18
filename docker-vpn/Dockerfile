@@ -19,7 +19,7 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
     && wget -q "https://www.expressvpn.works/clients/linux/${APP}" -O /tmp/${APP} \
     && dpkg -i /tmp/${APP} \
  ##   && rm -rf /tmp/*.deb \
-    && apt update && apt install -y --only-upgrade expressvpn && apt install -y nload htop vim net-tools shadowsocks-libev\
+    && apt update && apt install -y --only-upgrade expressvpn && apt install -y nload htop vim net-tools shadowsocks-libev && mkdir -p /etc/shadowsocks-libev \
     ## && apt-get purge -y --auto-remove wget\
 #    && sed -i \
 #        -e 's/listen-address\s*127.0.0.1:8118/listen-address 0.0.0.0:8118/g' \
