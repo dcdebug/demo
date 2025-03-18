@@ -25,16 +25,15 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
 #    && sed -i \
 #        -e 's/listen-address\s*127.0.0.1:8118/listen-address 0.0.0.0:8118/g' \
 #        /etc/privoxy/config
-RUN printf '{
-"server":["::1", "0.0.0.0"],
-"mode":"tcp_and_udp",
-"server_port":8118,
-"local_port":1080,
-"password":"iserver123",
-"timeout":86400,
-"method":"chacha20-ietf-poly1305"
-}' > /etc/shadowsocks-libev/config.json
-
+RUN echo '{ \
+"server":["::1", "0.0.0.0"], \
+"mode":"tcp_and_udp", \
+"server_port":8118, \
+"local_port":1080, \
+"password":"iserver123", \
+"timeout":86400, \
+"method":"chacha20-ietf-poly1305" \
+}' |tee  /etc/shadowsocks-libev/config.json
 
 COPY entrypoint.sh /tmp/entrypoint.sh
 COPY expressvpnActivate.sh /tmp/expressvpnActivate.sh
