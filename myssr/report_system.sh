@@ -9,7 +9,7 @@ if [ $isHaveAdded == 0 ]; then
 	fi
 fi
 ## ssl證書有問題。
-SERVER_DOMAIN='http://'
+SERVER_DOMAIN='https://apis.iservernetwork.cn'
 
 ## 檢查網絡狀態
 function minitorNetwork(){
@@ -189,9 +189,10 @@ MyIP6=`get_ipv6`
 MyPoint=`get_proxy_hostname`
 MyProxySoftware=`checkProxySoftware`
 TimeStamp=`date +%s`
+LocalDateTime=`date`
 RouterKey="fe4b2de6-f07b-11ed-ab13-001c42d546d4"
 proxyMessage=`minitorNetwork`
-string_data="proxySoftware=${MyProxySoftware}&routerKey=${RouterKey}&localTimeStamp=${TimeStamp}&ipv4=${MyIP}&ipv6=${MyIP6}&`get_system_info`&mac=`ifconfig |grep br-lan |awk '{ print $5 }'`&`nps_status`&${proxyMessage}"
+string_data="proxySoftware=${MyProxySoftware}&LocalDateTime=${LocalDateTime}&routerKey=${RouterKey}&localTimeStamp=${TimeStamp}&ipv4=${MyIP}&ipv6=${MyIP6}&`get_system_info`&mac=`ifconfig |grep br-lan |awk '{ print $5 }'`&`nps_status`&${proxyMessage}"
 string_data=`echo $string_data |base64 -i`
 echo "crypt String is :${string_data}"
 echo "send data to the server.";
