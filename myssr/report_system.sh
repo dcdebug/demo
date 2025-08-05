@@ -114,7 +114,7 @@ function proxyInformation(){
 }
 ##get user's IPv4 address
 function get_ipv4(){
-	ip=`/usr/bin/curl -s -4 v4.ident.me`
+	ip=`/usr/bin/curl ip.sb`
 	if [ -z $ip ];then
     echo 'false'
   else
